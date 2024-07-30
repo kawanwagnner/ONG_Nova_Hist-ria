@@ -24,13 +24,18 @@
     <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css" />
     <link rel="stylesheet" href="assets/css/animated.css" />
     <link rel="stylesheet" href="assets/css/owl.css" />
-    <!--
-    
-TemplateMo 562 Space Dynamic
 
-https://templatemo.com/tm-562-space-dynamic
+    <!-- CSS do SweetAlert2 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
 
--->
+    <!-- CSS do Swiper.js -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
   </head>
 
   <body>
@@ -118,7 +123,8 @@ https://templatemo.com/tm-562-space-dynamic
                     Associação Nova História
                   </h6>
                   <h2>
-                    Nós fazemos <em>A difereça</em> &amp; <span>o Impacto</span>
+                    Nós fazemos <em>A diferença</em> &amp;
+                    <span>o Impacto</span>
                   </h2>
                   <p>
                     Nossa visão é simples, sonhamos com um futuro brilhante para
@@ -126,25 +132,22 @@ https://templatemo.com/tm-562-space-dynamic
                     amor, oportunidades e a chance de alcançar seu pleno
                     potencial.✨
                   </p>
-                  <form
-                    id="search"
-                    action="https://wa.me/5511975091322?text=Ol%C3%A1%2C%20Pastora%20S%C3%B4nia!%20Tudo%20Bem%3F%0AEu%20vim%20pelo%20site%20da%20ONG%3A%20Associa%C3%A7%C3%A3o%20Nova%20Hist%C3%B3ria!"
-                    target="_blank"
-                    method="GET"
-                  >
+                  <form id="search" action="" target="_blank" method="GET">
                     <fieldset>
                       <input
                         type="address"
                         name="address"
                         class="email"
                         placeholder="Faça parte disso..."
-                        autocomplete="on"
-                        required
                         disabled
                       />
                     </fieldset>
                     <fieldset>
-                      <button type="submit" class="main-button">
+                      <button
+                        type="button"
+                        class="main-button"
+                        onclick="copyCNPJ(event)"
+                      >
                         Doar Agora
                       </button>
                     </fieldset>
@@ -168,6 +171,28 @@ https://templatemo.com/tm-562-space-dynamic
         </div>
       </div>
     </div>
+
+    <script>
+      function copyCNPJ(event) {
+        event.preventDefault();
+        const cnpj = "15.079.326/0001-23";
+        navigator.clipboard
+          .writeText(cnpj)
+          .then(() => {
+            Swal.fire({
+              title: "Sucesso!",
+              text: "CNPJ copiado para a área de transferência: " + cnpj,
+              icon: "success",
+              confirmButtonText: "OK",
+            });
+            // Se você ainda quiser redirecionar para o link do Instagram, pode descomentar a linha abaixo
+            // window.open(event.target.href, '_blank');
+          })
+          .catch((err) => {
+            console.error("Erro ao copiar o CNPJ: ", err);
+          });
+      }
+    </script>
 
     <div id="about" class="about-us section">
       <div class="container">
@@ -424,26 +449,6 @@ https://templatemo.com/tm-562-space-dynamic
               </div>
             </a>
           </div>
-          <div class="col-lg-3 col-sm-6">
-            <a
-              href="https://www.instagram.com/associacaonovahistoria/"
-              target="_blank"
-            >
-              <div
-                class="item wow bounceInUp"
-                data-wow-duration="1s"
-                data-wow-delay="0.6s"
-              >
-                <div class="hidden-content">
-                  <h4>5° Dia</h4>
-                  <p>Cor Verde - O tema foi Plantas pois nasc. de novo.</p>
-                </div>
-                <div class="showed-content">
-                  <img src="assets/images/arvore.png" alt="" />
-                </div>
-              </div>
-            </a>
-          </div>
         </div>
       </div>
     </div>
@@ -612,14 +617,49 @@ https://templatemo.com/tm-562-space-dynamic
               <div class="phone-info">
                 <h4>
                   Doe Agora no PIX:
-                  <span
-                    ><i class="fa fa-phone"></i>
+                  <span>
+                    <i class="fa fa-info"></i>
+                    <a href="#" onclick="copyCNPJ(event)" class="fs-5">
+                      15.079.326/0001-23 (CNPJ)
+                    </a>
+                  </span>
+                </h4>
+                <script>
+                  function copyCNPJ(event) {
+                    event.preventDefault();
+                    const cnpj = "15.079.326/0001-23";
+                    navigator.clipboard
+                      .writeText(cnpj)
+                      .then(() => {
+                        Swal.fire({
+                          title: "Sucesso!",
+                          text:
+                            "CNPJ copiado para a área de transferência: " +
+                            cnpj,
+                          icon: "success",
+                          confirmButtonText: "OK",
+                        });
+                        // Se você ainda quiser redirecionar para o link do Instagram, pode descomentar a linha abaixo
+                        // window.open(event.target.href, '_blank');
+                      })
+                      .catch((err) => {
+                        console.error("Erro ao copiar o CNPJ: ", err);
+                      });
+                  }
+                </script>
+
+                <h4 class="mt-5">
+                  WhatsApp:
+                  <span>
+                    <i class="fa fa-whatsapp"></i>
                     <a
-                      href="https://www.instagram.com/associacaonovahistoria/"
+                      href="https://wa.me/5511975091322?text=Ol%C3%A1%2C%20Pastora%20S%C3%B4nia!%20Tudo%20Bem%3F%0AEu%20vim%20pelo%20site%20da%20ONG%3A%20Associa%C3%A7%C3%A3o%20Nova%20Hist%C3%B3ria!"
                       target="_blank"
-                      >15.079.326/0001-23 (CNPJ)</a
-                    ></span
-                  >
+                      class="fs-5"
+                    >
+                      +55 11 97509-1322
+                    </a>
+                  </span>
                 </h4>
               </div>
             </div>
@@ -663,7 +703,7 @@ https://templatemo.com/tm-562-space-dynamic
                       id="email"
                       pattern="[^ @]*@[^ @]*"
                       placeholder="Seu E-mail"
-                      required=""
+                      required
                     />
                   </fieldset>
                 </div>
@@ -675,7 +715,7 @@ https://templatemo.com/tm-562-space-dynamic
                       class="form-control"
                       id="message"
                       placeholder="Mensagem"
-                      required=""
+                      required
                     ></textarea>
                   </fieldset>
                 </div>
@@ -727,5 +767,9 @@ https://templatemo.com/tm-562-space-dynamic
     <script src="assets/js/animation.js"></script>
     <script src="assets/js/imagesloaded.js"></script>
     <script src="assets/js/templatemo-custom.js"></script>
+    <!-- JS do SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <!-- JS do Swiper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   </body>
 </html>
